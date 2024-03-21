@@ -19,6 +19,8 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
+
+				<div class="placeholder"></div>
 				<div style="display: flex; justify-content: center; align-items: center;">
 					<div class="involved-projects"></div>
 				</div>
@@ -138,12 +140,20 @@ I have attached the contents of the json below. assume it is stored in a variabl
 						projectDiv.addEventListener('mouseover', function() {
 							projectDiv.style.width = '90px';
 							projectDiv.style.height = '90px';
+							if (projectsData[project].description) {
+								projectsDiv.innerHTML = projectsData[project].description;
+							}
+							if (projectsData[project].popup_img) {
+								projectsDiv.style.backgroundImage = `url(${projectsData[project].popup_img})`;
+							}
 						});
 
 						// Reset size on mouseout
 						projectDiv.addEventListener('mouseout', function() {
 							projectDiv.style.width = '75px';
 							projectDiv.style.height = '75px';
+							projectsDiv.innerHTML = ''; // Reset the content
+							projectsDiv.style.backgroundImage = ''; // Reset the background image
 						});
 
 						projectsDiv.appendChild(projectDiv);
