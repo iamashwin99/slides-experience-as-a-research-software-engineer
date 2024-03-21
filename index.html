@@ -19,7 +19,13 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<div class="involved-projects"></div>
+				<div style="display: flex; justify-content: center; align-items: center;">
+					<div class="involved-projects"></div>
+
+					<div style="display: flex; justify-content: center;">
+						<h2>Ashwin Kumar Karnad</h2>
+					</div>
+				</div>
 				<!-- I want to create a java script code that replaces a placeholder div with class "involved-projects" with a dif containing many circular bubbles.
 Thes bubbles are projects mentioned in a json. The bubbles are arranged in a circular cluster which is randomly positioned.
 Each of these bubbles hold images of the project. the location of the images are held in in the "logo" attribute of the jsons project.
@@ -102,25 +108,29 @@ I have attached the contents of the json below. assume it is stored in a variabl
 					// for each project in the json, create a div with the logo of the project
 					// and add it to the div with class "involved-projects"
 					let projectsDiv = document.querySelector('.involved-projects');
+					projectsDiv.style.justifyContent = 'center';
+					projectsDiv.style.alignItems = 'center';
+					projectsDiv.style.display = 'flex'; // Add this line to make the bubbles arrange horizontally
+					projectsDiv.style.flexDirection = 'row'; // Add this line to make the bubbles arrange horizontally
+					projectsDiv.style.margin = '0 auto'; // Add this line to horizontally center the div
+
 					for (let project in projectsData) {
 						let projectDiv = document.createElement('div');
-						projectDiv.style.width = '50px';
-						projectDiv.style.height = '50px';
+						projectDiv.style.width = '75px';
+						projectDiv.style.height = '75px';
 						projectDiv.style.borderRadius = '50%';
 						projectDiv.style.backgroundImage = `url(${projectsData[project].logo})`;
 						projectDiv.style.backgroundSize = 'cover';
 						projectDiv.style.backgroundPosition = 'center';
 						projectDiv.style.backgroundRepeat = 'no-repeat';
-
+						projectDiv.style.margin = '10px';
 						projectsDiv.appendChild(projectDiv);
 					}
 
 
 				</script>
 
-				<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-					<h2>Ashwin Kumar Karnad</h2>
-				</div>
+
 			</section>
 			<section>
 
