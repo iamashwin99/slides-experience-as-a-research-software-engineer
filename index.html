@@ -21,10 +21,10 @@
 			<section>
 				<div style="display: flex; justify-content: center; align-items: center;">
 					<div class="involved-projects"></div>
+				</div>
 
-					<div style="display: flex; justify-content: center;">
-						<h2>Ashwin Kumar Karnad</h2>
-					</div>
+				<div>
+					<h2>Ashwin Kumar Karnad</h2>
 				</div>
 				<!-- I want to create a java script code that replaces a placeholder div with class "involved-projects" with a dif containing many circular bubbles.
 Thes bubbles are projects mentioned in a json. The bubbles are arranged in a circular cluster which is randomly positioned.
@@ -45,6 +45,12 @@ I have attached the contents of the json below. assume it is stored in a variabl
     "postopus": {
         "logo": "images/logo/octopus.png",
         "description": "Postopus is a Python package for POST porcessing of OctoPUS data.",
+        "link": "https://gitlab.com/octopus-code/postopus",
+        "popup_img": "images/postopus-popup.png"
+    },
+	"spack": {
+        "logo": "images/logo/spack.png",
+        "description": "Spack is a package manager for HPCs",
         "link": "https://gitlab.com/octopus-code/postopus",
         "popup_img": "images/postopus-popup.png"
     },
@@ -76,7 +82,7 @@ I have attached the contents of the json below. assume it is stored in a variabl
         "popup_img": "images/mpsd-manager-popup.png"
     },
     "FAI": {
-        "logo": "images/logo/fai.png",
+        "logo": "images/logo/fai2.png",
         "description": "Fully Automatic Installation (FAI) is a non-interactive system to install, customize and manage Linux systems and software configurations on computers as well as virtual machines.",
         "link": "https://fai-project.org/"
     },
@@ -105,8 +111,9 @@ I have attached the contents of the json below. assume it is stored in a variabl
         "link": "https://www.ni.com/en-us/shop/labview.html"
     }
 }
-					// for each project in the json, create a div with the logo of the project
-					// and add it to the div with class "involved-projects"
+
+
+					// Rest of the code remains the same
 					let projectsDiv = document.querySelector('.involved-projects');
 					projectsDiv.style.justifyContent = 'center';
 					projectsDiv.style.alignItems = 'center';
@@ -124,11 +131,13 @@ I have attached the contents of the json below. assume it is stored in a variabl
 						projectDiv.style.backgroundPosition = 'center';
 						projectDiv.style.backgroundRepeat = 'no-repeat';
 						projectDiv.style.margin = '10px';
+						// Add CSS transition property for smoother hover animation
+						projectDiv.style.transition = 'width 0.3s, height 0.3s';
 
 						// Add hover effect
 						projectDiv.addEventListener('mouseover', function() {
-							projectDiv.style.width = '80px';
-							projectDiv.style.height = '80px';
+							projectDiv.style.width = '90px';
+							projectDiv.style.height = '90px';
 						});
 
 						// Reset size on mouseout
