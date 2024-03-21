@@ -124,6 +124,19 @@ I have attached the contents of the json below. assume it is stored in a variabl
 						projectDiv.style.backgroundPosition = 'center';
 						projectDiv.style.backgroundRepeat = 'no-repeat';
 						projectDiv.style.margin = '10px';
+
+						// Add hover effect
+						projectDiv.addEventListener('mouseover', function() {
+							projectDiv.style.width = '80px';
+							projectDiv.style.height = '80px';
+						});
+
+						// Reset size on mouseout
+						projectDiv.addEventListener('mouseout', function() {
+							projectDiv.style.width = '75px';
+							projectDiv.style.height = '75px';
+						});
+
 						projectsDiv.appendChild(projectDiv);
 					}
 
