@@ -32,69 +32,69 @@ I have attached the contents of the json below. assume it is stored in a variabl
 					// hardcode for now
 					let projectsData ={
     "git": {
-        "logo": "images/git.png",
+        "logo": "images/logo/git.png",
         "description": "Git is a distributed version-control system for tracking changes in source code during software development.",
         "popup_img": "images/git-popup.png"
     },
     "postopus": {
-        "logo": "images/octopus.png",
+        "logo": "images/logo/octopus.png",
         "description": "Postopus is a Python package for POST porcessing of OctoPUS data.",
         "link": "https://gitlab.com/octopus-code/postopus",
         "popup_img": "images/postopus-popup.png"
     },
     "buildbot": {
-        "logo": "images/buildbot.png",
+        "logo": "images/logo/buildbot.png",
         "description": "open-source framework for automating software build, test, and release processes.",
         "link": "https://www.octopus-code.org/buildbot/#/builders",
         "popup_img": "images/buildbot-popup.png"
     },
     "proxmox": {
-        "logo": "images/proxmox.png",
+        "logo": "images/logo/proxmox.png",
         "description": "Proxmox Virtual Environment is an open-source server virtualization management platform.",
         "link": "https://www.proxmox.com/en/",
         "popup_img": "images/proxmox-popup.png"
     },
     "ollama": {
-        "logo": "images/ollama.png",
+        "logo": "images/logo/ollama.png",
         "description": "Ollama is a tool to manage and host local LLMs",
         "link": "https://ollama.com/",
         "popup_img": "images/ollama-popup.png"
     },
     "github_ci": {
-        "logo": "images/githuba.png"
+        "logo": "images/logo/github.png"
     },
     "mpsd-software-manager": {
-        "logo": "images/mpsd-manager.png",
+        "logo": "images/logo/mpsd-manager.png",
         "description": "MPSD Software Manager is a tool to manage and install software on the MPSD cluster.",
         "link": "https://gitlab.gwdg.de/mpsd-cs/mpsd-software-manager",
         "popup_img": "images/mpsd-manager-popup.png"
     },
     "FAI": {
-        "logo": "images/fai.png",
+        "logo": "images/logo/fai.png",
         "description": "Fully Automatic Installation (FAI) is a non-interactive system to install, customize and manage Linux systems and software configurations on computers as well as virtual machines.",
         "link": "https://fai-project.org/"
     },
     "Slurm": {
-        "logo": "images/slurm.png",
+        "logo": "images/logo/slurm.png",
         "description": "Slurm is an open-source workload manager designed for Linux clusters of all sizes."
     },
     "Pytests": {
-        "logo": "images/pytest.png",
+        "logo": "images/logo/pytest.png",
         "description": "Pytest is a testing framework which allows us to write simple and scalable tests.",
         "link": "https://docs.pytest.org/en/latest/"
     },
-    "holloviews": {
-        "logo": "images/holoviews.png",
+    "holoviews": {
+        "logo": "images/logo/holoviews.png",
         "description": "HoloViews is an open-source Python library designed to make data analysis and visualization seamless and simple.",
         "link": "http://holoviews.org/"
     },
     "pyvisa": {
-        "logo": "images/pyvisa.png",
+        "logo": "images/logo/pyvisa.jpeg",
         "description": "PyVISA is a Python package that enables you to control all kinds of measurement devices independently of the interface (e.g. GPIB, RS232, USB, Ethernet). It is based on the VISA library that is provided by National Instruments.",
         "link": "https://pyvisa.readthedocs.io/en/stable/"
     },
     "labview": {
-        "logo": "images/labview.png",
+        "logo": "images/logo/labview.png",
         "description": "LabVIEW is a graphical programming platform that helps engineers scale from design to test and from small to large systems.",
         "link": "https://www.ni.com/en-us/shop/labview.html"
     }
@@ -104,9 +104,13 @@ I have attached the contents of the json below. assume it is stored in a variabl
 					let projectsDiv = document.querySelector('.involved-projects');
 					for (let project in projectsData) {
 						let projectDiv = document.createElement('div');
-						console.log(projectsData[project].logo);
-						console.log(projectsData[project].description);
-						projectDiv.innerHTML = `<img src="${projectsData[project].logo}" alt="${project}" >`;
+						projectDiv.style.width = '50px';
+						projectDiv.style.height = '50px';
+						projectDiv.style.borderRadius = '50%';
+						projectDiv.style.backgroundImage = `url(${projectsData[project].logo})`;
+						projectDiv.style.backgroundSize = 'cover';
+						projectDiv.style.backgroundPosition = 'center';
+						projectDiv.style.backgroundRepeat = 'no-repeat';
 
 						projectsDiv.appendChild(projectDiv);
 					}
