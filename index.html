@@ -61,6 +61,7 @@ I have attached the contents of the json below. assume it is stored in a variabl
     "git": {
         "logo": "images/logo/git.png",
         "description": "Familiarity with version control systems like  Git",
+		"pointers": "<ul><li>Other good software practices</li><li>Reproducible software</li></ul>"
     },
     "postopus": {
         "logo": "images/logo/octopus.png",
@@ -78,19 +79,19 @@ I have attached the contents of the json below. assume it is stored in a variabl
 		"logo": "images/logo/mpsd-manager.png",
 		"description": "MPSD Software Manager is a tool to manage and install software on the MPSD cluster.",
 		"link": "https://gitlab.gwdg.de/mpsd-cs/mpsd-software-manager",
-		"popup_img": "images/mpsd-manager-popup.png"
+		"pointers": "<ul><li>Easy compilation of HPC toolchains on users</li><li>Automated compilation of software</li></ul>"
 	},
     "buildbot": {
         "logo": "images/logo/buildbot.png",
-        "description": "open-source framework for automating software build, test, and release processes.",
+        "description": "Buildbot: open-source framework for automating software build, test, and release processes.",
         "link": "https://www.octopus-code.org/buildbot/#/builders",
         "popup_img": "images/buildbot-popup.png"
     },
     "proxmox": {
         "logo": "images/logo/proxmox.png",
-        "description": "Proxmox Virtual Environment is an open-source server virtualization management platform.",
+        "description": "Proxmox: open-source server virtualization management platform.",
         "link": "https://www.proxmox.com/en/",
-        "popup_img": "images/proxmox-popup.png"
+		"pointers": "<ul><li>Virtualization of nodes (login nodes, utility vms) </li><li>Maintenance and backup of nodes</li></ul>"
     },
 	"docker": {
 		"logo": "images/logo/docker.png",
@@ -99,15 +100,22 @@ I have attached the contents of the json below. assume it is stored in a variabl
 		"pointers":"<ul><li>Containerization of toolchains</li><li>Containerization of HPC codes for portability</li></ul>"
 
 	},
+	"mm_clus": {
+		"logo": "images/logo/mpsd-manager.png",
+		"description": "Clustering of Micromagnetic simulations",
+		"popup_img": "images/mm_cfg_1.png"
+	},
     "ollama": {
         "logo": "images/logo/ollama.png",
         "description": "Ollama is a tool to manage and host local LLMs",
         "link": "https://ollama.com/",
+		"pointers": "<ul><li>Chat interface for user documentation (locally hosted)</li><li>Bash command helper</li></ul>"
     },
     "FAI": {
         "logo": "images/logo/fai2.png",
-        "description": "Fully Automatic Installation (FAI) is a non-interactive system to install, customize and manage Linux systems and software configurations on computers as well as virtual machines.",
-        "link": "https://fai-project.org/"
+        "description": "Fully Automatic Installation (FAI)",
+        "link": "https://fai-project.org/",
+		"pointers": "<ul><li>Automated installation of nodes</li><li>Single source of truth for all machines</li><li>Easy machine (soft)updates</li></ul>"
     },
     "Slurm": {
         "logo": "images/logo/slurm.png",
