@@ -153,14 +153,15 @@ I have attached the contents of the json below. assume it is stored in a variabl
 
 					for (let project in projectsData) {
 						let projectDiv = document.createElement('div');
-						projectDiv.style.width = '100px';
-						projectDiv.style.height = '75px';
+						projectDiv.style.width = '50px';
+						projectDiv.style.height = '50px';
 						projectDiv.style.borderRadius = '50%';
 						projectDiv.style.backgroundImage = `url(${projectsData[project].logo})`;
 						projectDiv.style.backgroundSize = 'cover';
 						projectDiv.style.backgroundPosition = 'center';
 						projectDiv.style.backgroundRepeat = 'no-repeat';
 						projectDiv.style.margin = '10px';
+						projectDiv.style.aspectRatio = '1/1'; // Add this line to make the div a square
 						// Add CSS transition property for smoother hover animation
 						projectDiv.style.transition = 'width 0.3s, height 0.3s';
 
@@ -192,8 +193,8 @@ I have attached the contents of the json below. assume it is stored in a variabl
 
 						// Reset size on mouseout
 						projectDiv.addEventListener('mouseout', function() {
-							projectDiv.style.width = '75px';
-							projectDiv.style.height = '50px';
+							projectDiv.style.width = '30px';
+							projectDiv.style.height = '30px';
 							placeholder.style.backgroundImage = ''; // Reset the background image
 							placeholder.innerHTML = ''; // Reset the placeholder
 						});
