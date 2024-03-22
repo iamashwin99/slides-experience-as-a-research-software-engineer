@@ -36,10 +36,14 @@
 					<br>
 					<br>
 					<br>
+					<br>
+					<br>
+					<br>
+					<br>
 					<!-- // div that takes the bottom 30% of the screen fixed -->
 					<div style="height: 30%; width: 100%; position: fixed; bottom: 0; left: 0;">
 						<div class="involved-projects"></div>
-						<div><h2>Ashwin Kumar Karnad</h2</div>
+						<div><h2>Ashwin Kumar Karnad</h2> <p>RSE, MPSD</p></div>
 				</div>
 
 
@@ -56,21 +60,26 @@ I have attached the contents of the json below. assume it is stored in a variabl
 					let projectsData ={
     "git": {
         "logo": "images/logo/git.png",
-        "description": "Git is a distributed version-control system for tracking changes in source code during software development.",
-        "popup_img": "images/git-popup.png"
+        "description": "Familiarity with version control systems like  Git",
     },
     "postopus": {
         "logo": "images/logo/octopus.png",
         "description": "Postopus is a Python package for POST porcessing of OctoPUS data.",
         "link": "https://gitlab.com/octopus-code/postopus",
-        "popup_img": "images/postopus-popup.png"
+        "popup_img": "images/postopus2.png"
     },
 	"spack": {
         "logo": "images/logo/spack.png",
         "description": "Spack is a package manager for HPCs",
         "link": "https://gitlab.com/octopus-code/postopus",
-        "popup_img": "images/postopus-popup.png"
+        "popup_img": "images/spack-popup.png"
     },
+	"mpsd-software-manager": {
+		"logo": "images/logo/mpsd-manager.png",
+		"description": "MPSD Software Manager is a tool to manage and install software on the MPSD cluster.",
+		"link": "https://gitlab.gwdg.de/mpsd-cs/mpsd-software-manager",
+		"popup_img": "images/mpsd-manager-popup.png"
+	},
     "buildbot": {
         "logo": "images/logo/buildbot.png",
         "description": "open-source framework for automating software build, test, and release processes.",
@@ -83,20 +92,17 @@ I have attached the contents of the json below. assume it is stored in a variabl
         "link": "https://www.proxmox.com/en/",
         "popup_img": "images/proxmox-popup.png"
     },
+	"docker": {
+		"logo": "images/logo/docker.png",
+		"description": "Containerization of software using Docker",
+		"link": "https://www.docker.com/",
+		"pointers":"<ul><li>Containerization of toolchains</li><li>Containerization of HPC codes for portability</li></ul>"
+
+	},
     "ollama": {
         "logo": "images/logo/ollama.png",
         "description": "Ollama is a tool to manage and host local LLMs",
         "link": "https://ollama.com/",
-        "popup_img": "images/ollama-popup.png"
-    },
-    "github_ci": {
-        "logo": "images/logo/github.png"
-    },
-    "mpsd-software-manager": {
-        "logo": "images/logo/mpsd-manager.png",
-        "description": "MPSD Software Manager is a tool to manage and install software on the MPSD cluster.",
-        "link": "https://gitlab.gwdg.de/mpsd-cs/mpsd-software-manager",
-        "popup_img": "images/mpsd-manager-popup.png"
     },
     "FAI": {
         "logo": "images/logo/fai2.png",
@@ -131,15 +137,15 @@ I have attached the contents of the json below. assume it is stored in a variabl
 
 					let placeholder = document.querySelector('.placeholder');
 					let projectsDiv = document.querySelector('.involved-projects');
-					projectsDiv.style.justifyContent = 'center';
-					projectsDiv.style.alignItems = 'center';
+					// projectsDiv.style.justifyContent = 'center';
+					// projectsDiv.style.alignItems = 'center';
 					projectsDiv.style.display = 'flex'; // Add this line to make the bubbles arrange horizontally
 					projectsDiv.style.flexDirection = 'row'; // Add this line to make the bubbles arrange horizontally
-					projectsDiv.style.margin = '0 auto'; // Add this line to horizontally center the div
+					// projectsDiv.style.margin = '0 auto'; // Add this line to horizontally center the div
 
 					for (let project in projectsData) {
 						let projectDiv = document.createElement('div');
-						projectDiv.style.width = '75px';
+						projectDiv.style.width = '100px';
 						projectDiv.style.height = '75px';
 						projectDiv.style.borderRadius = '50%';
 						projectDiv.style.backgroundImage = `url(${projectsData[project].logo})`;
@@ -155,18 +161,32 @@ I have attached the contents of the json below. assume it is stored in a variabl
 							projectDiv.style.width = '90px';
 							projectDiv.style.height = '90px';
 							if (projectsData[project].description) {
-								placeholder.innerHTML = projectsData[project].description;
+								let popup_text = document.createElement('div');
+								popup_text.innerHTML = projectsData[project].description;
+								placeholder.appendChild(popup_text);
 							}
 							if (projectsData[project].popup_img) {
-								projectsDiv.style.backgroundImage = `url(${projectsData[project].popup_img})`;
+								popup_img = document.createElement('div');
+								// Add a div with image src as projectsData[project].popup_img
+								popup_img.innerHTML = `<img src="${projectsData[project].popup_img}" style="height: 350px;">`;
+
+								// popup_img.style.backgroundImage = `url(${projectsData[project].popup_img})`;
+
+								placeholder.appendChild(popup_img);
+
+							}
+							else if (projectsData[project].pointers) {
+								let popup_text = document.createElement('div');
+								popup_text.innerHTML = projectsData[project].pointers;
+								placeholder.appendChild(popup_text);
 							}
 						});
 
 						// Reset size on mouseout
 						projectDiv.addEventListener('mouseout', function() {
 							projectDiv.style.width = '75px';
-							projectDiv.style.height = '75px';
-							projectsDiv.style.backgroundImage = ''; // Reset the background image
+							projectDiv.style.height = '50px';
+							placeholder.style.backgroundImage = ''; // Reset the background image
 							placeholder.innerHTML = ''; // Reset the placeholder
 						});
 
